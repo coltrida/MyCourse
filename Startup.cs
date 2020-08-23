@@ -17,7 +17,7 @@ namespace MyCourse
         public void ConfigureServices(IServiceCollection services)
         {
             // per far funzionare il middleware di routing serve il servizio di mvc
-            services.AddMvc();
+            services.AddMvc().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,6 +27,8 @@ namespace MyCourse
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseStaticFiles();
 
             app.UseRouting();
 
